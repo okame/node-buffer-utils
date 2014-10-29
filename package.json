@@ -1,0 +1,28 @@
+{
+  "name": "node-buffere-utils",
+  "version": "0.0.0",
+  "description": "node-buffere-utils ==================",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okame/node-buffere-utils.git"
+  },
+  "keywords": [
+    "node",
+    "binary",
+    "buffer"
+  ],
+  "author": "okame",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okame/node-buffere-utils/issues"
+  },
+  "homepage": "https://github.com/okame/node-buffere-utils",
+  "devDependencies": {
+    "mocha": "^1.21.5",
+    "should": "*"
+  }
+}
