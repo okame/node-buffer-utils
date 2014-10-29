@@ -44,5 +44,5 @@ module.exports = buffer_utils;
 
 if(module.parent === null) {
     /* error */
-    //console.log(buffer_utils.createIntBE(256, 1));
+    console.log(buffer_utils.createIntBE(256, 2));
 }
