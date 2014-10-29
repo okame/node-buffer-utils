@@ -17,11 +17,12 @@ console.log(res);
 Methods
 -------------------
 
-### createIntBE
+### createIntBE(val, len)
 
 Create buffer from integer value with big endian.
+"len" is buffer size(byte).
 
 
-### createFromHexString
+### createFromHexString(str)
 
 Create buffer from string with big endian.

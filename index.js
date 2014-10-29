@@ -1,5 +1,16 @@
 var buffer_utils = {
 
+    readUIntBE: function(buffer) {
+        var len = buffer.length, i,
+            res = 0;
+
+        for(i=0;i<len;i++) {
+            res += Math.pow(256, i) * buffer[len-1-i];
+        }
+
+        return res;
+    },
+
     createIntBE: function(val, len) {
         var b = new Buffer(len), i, tmp = val, overflow = true;
 

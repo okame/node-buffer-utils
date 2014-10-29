@@ -5,6 +5,22 @@ describe('buffer_utils', function() {
         buffer_utils.should.be.type('object');
     });
 
+    describe('readUIntBE', function() {
+        var buffer = new Buffer(6), res;
+        buffer.fill(0);
+        buffer[5] = 255;
+        res1 = buffer_utils.readUIntBE(buffer);
+
+        buffer.fill(0);
+        buffer[4] = 1;
+        res2 = buffer_utils.readUIntBE(buffer);
+
+        it('should read correct integer value.', function() {
+            res1.should.equal(255);
+            res2.should.equal(256);
+        });
+    });
+
     describe('createIntBE', function() {
         var val = 256,
             len = 2,
