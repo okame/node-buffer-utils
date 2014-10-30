@@ -82,7 +82,7 @@ describe('buffer_utils', function() {
 
     describe('readHexString', function() {
         var b = new Buffer(4), res;
-        b[0] = parseInt('12', 16);
+        b[0] = parseInt('00', 16);
         b[1] = parseInt('34', 16);
         b[2] = parseInt('ab', 16);
         b[3] = parseInt('cd', 16);

@@ -1,10 +1,14 @@
 var buffer_utils = {
 
     readHexString: function(buffer) {
-        var i, res = '';
+        var i, res = '', tmp;
 
         for(i=0;i<buffer.length;i++) {
-            res += buffer[i].toString(16);
+            tmp = buffer[i].toString(16);
+            if(tmp.length == 1) {
+                tmp += 0;
+            }
+            res += tmp;
         }
 
         return res;
