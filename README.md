@@ -1,4 +1,4 @@
-node-buffere-utils
+node-buffer-utils
 ==================
 
 Extended Buffer Class for Node.js
