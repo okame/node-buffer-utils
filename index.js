@@ -6,7 +6,7 @@ var buffer_utils = {
         for(i=0;i<buffer.length;i++) {
             tmp = buffer[i].toString(16);
             if(tmp.length == 1) {
-                tmp += 0;
+                tmp = '0'+tmp;
             }
             res += tmp;
         }
