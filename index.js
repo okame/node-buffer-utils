@@ -1,5 +1,15 @@
 var buffer_utils = {
 
+    readHexString: function(buffer) {
+        var i, res = '';
+
+        for(i=0;i<buffer.length;i++) {
+            res += buffer[i].toString(16);
+        }
+
+        return res;
+    },
+
     readUIntBE: function(buffer) {
         var len = buffer.length, i,
             res = 0;
