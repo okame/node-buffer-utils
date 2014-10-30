@@ -17,12 +17,18 @@ console.log(res);
 Methods
 -------------------
 
+### readHexString(buffer)
+Return hex string from buffer.
+
+### readIntBE(buffer)
+Return integer value from buffer as big endian.
+
 ### createIntBE(val, len)
 
-Create buffer from integer value with big endian.
+Create buffer from integer value as big endian.
 "len" is buffer size(byte).
 
 
 ### createFromHexString(str)
 
-Create buffer from string with big endian.
+Create buffer from string as big endian.
