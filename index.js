@@ -32,17 +32,25 @@ var buffer_utils = {
         return b;
     },
 
-    createFromHexString: function(str) {
-        var i, len = Math.ceil(str.length/2),
+    createFromHexString: function(_str) {
+        var str = _str.toString(),
+            i, len = Math.ceil(str.length/2),
             res = new Buffer(len), tmp;
 
         res.fill(0);
+
+        if(str.length%2==1) {
+            str = '0' + str;
+        }
+
         for(i=0;i<len;i++) {
             tmp = parseInt(str[i*2], 16)*16;
             if(Number.isNaN(tmp)) {
                 throw new Error('Invalid argument. It\'s not hex string.');
             }
-            tmp += parseInt(str[i*2+1], 16);
+            if(str[i*2+1]) {
+                tmp += parseInt(str[i*2+1], 16);
+            }
             res[i] = tmp;
         }
 

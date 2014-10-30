@@ -44,24 +44,38 @@ describe('buffer_utils', function() {
     });
 
     describe('createFromHexString', function() {
-        var str = '123456789abcdef',
-            res = buffer_utils.createFromHexString(str);
+        describe('argument is string', function() {
+            var str = '123456789abcdef1',
+                res = buffer_utils.createFromHexString(str);
 
-        it('should return Buffer instance', function() {
-            res.should.be.instanceof(Buffer);
+            it('should return Buffer instance', function() {
+                res.should.be.instanceof(Buffer);
+            });
+
+            it('should return correct value and length.', function() {
+                var str_len = Math.ceil(str.length/2);
+                res.length.should.be.equal(str_len);
+                res[0].should.be.equal(parseInt(12, 16));
+                res[res.length-1].should.be.equal(parseInt('f1', 16));
+            });
+
+            it('should throw error if argument is not hex string.', function() {
+                (function() {
+                    var invalid_str = 'zzz';
+                    buffer_utils.createFromHexString(invalid_str);
+                }).should.throw();
+            });
+
         });
 
-        it('should return correct value and length.', function() {
-            var str_len = Math.ceil(str.length/2);
-            res.length.should.be.equal(str_len);
-            res[0].should.be.equal(parseInt(12, 16));
-        });
+        describe('argument is integer', function() {
+            var str = 5,
+                res = buffer_utils.createFromHexString(str);
 
-        it('should throw error if argument is not hex string.', function() {
-            (function() {
-                var invalid_str = 'zzz';
-                buffer_utils.createFromHexString(invalid_str);
-            }).should.throw();
+            it('should return correct value and length.', function() {
+                res.length.should.equal(1);
+                res[0].should.equal(5);
+            });
         });
 
     });
