@@ -46,6 +46,14 @@ var buffer_utils = {
         return b;
     },
 
+    createFromString: function(_str) {
+        var res = new Buffer(_str.length), i;
+        for(i=0;i<_str.length;i++) {
+            res[i] = _str.charCodeAt(i);
+        }
+        return res;
+    },
+
     createFromHexString: function(_str) {
         var str = _str.toString(),
             i, len = Math.ceil(str.length/2),

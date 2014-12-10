@@ -43,6 +43,23 @@ describe('buffer_utils', function() {
 
     });
 
+    describe('createFromString', function() {
+        describe('argument is string', function() {
+            var str = 'sashimi',
+                res = buffer_utils.createFromString(str);
+            it('should return Buffer instance.', function() {
+                res.should.be.instanceof(Buffer);
+            });
+            it('should return collect one and length.', function() {
+                var i;
+                res.length.should.be.equal(str.length);
+                for(i=0;i<str.length;i++) {
+                    res[i].should.be.equal(str.charCodeAt(i));
+                }
+            });
+        });
+    });
+
     describe('createFromHexString', function() {
         describe('argument is string', function() {
             var str = '123456789abcdef1',
