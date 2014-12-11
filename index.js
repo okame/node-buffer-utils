@@ -27,6 +27,18 @@ var buffer_utils = {
         return res;
     },
 
+    // e.g., <Buffer 00 01> -> 256
+    readUIntLE: function(buffer) {
+        var len = buffer.length, i,
+            res = 0;
+
+        for(i=0;i<len;i++) {
+            res += Math.pow(256, i) * buffer[i];
+        }
+
+        return res;
+    },
+
     // e.g., 0x010f -> <Buffer 01 0f>
     createIntBE: function(val, len) {
         var b = new Buffer(len), i, tmp = val, overflow = true;

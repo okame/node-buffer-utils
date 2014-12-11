@@ -37,6 +37,16 @@ buffer_utils.readIntBE(buffer);
 // -> 16
 ```
 
+### readIntLE(buffer)
+Return integer value from buffer as little endian.
+
+```
+var buffer = new Buffer([0x00, 0x01]);
+
+buffer_utils.readIntBE(buffer);
+// -> 256
+```
+
 ### createIntBE(val, len)
 
 Create buffer from integer value as big endian.

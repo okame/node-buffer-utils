@@ -21,6 +21,22 @@ describe('buffer_utils', function() {
         });
     });
 
+    describe('readUIntLE', function() {
+        var buffer = new Buffer(2), res;
+        buffer.fill(0);
+        buffer[0] = 255;
+        res1 = buffer_utils.readUIntLE(buffer);
+
+        buffer.fill(0);
+        buffer[1] = 1;
+        res2 = buffer_utils.readUIntLE(buffer);
+
+        it('should read correct integer value.', function() {
+            res1.should.equal(255);
+            res2.should.equal(256);
+        });
+    });
+
     describe('createIntBE', function() {
         var val = 256,
             len = 2,
