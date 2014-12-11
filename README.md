@@ -27,23 +27,23 @@ buffer_utils.readHexString(buffer);
 // -> 'abcdef'
 ```
 
-### readIntBE(buffer)
+### readUIntBE(buffer)
 Return integer value from buffer as big endian.
 
 ```
 var buffer = new Buffer([0x00, 0x00, 0x10]);
 
-buffer_utils.readIntBE(buffer);
+buffer_utils.readUIntBE(buffer);
 // -> 16
 ```
 
-### readIntLE(buffer)
+### readUIntLE(buffer)
 Return integer value from buffer as little endian.
 
 ```
 var buffer = new Buffer([0x00, 0x01]);
 
-buffer_utils.readIntBE(buffer);
+buffer_utils.readUIntBE(buffer);
 // -> 256
 ```
 
