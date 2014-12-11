@@ -43,6 +43,29 @@ describe('buffer_utils', function() {
 
     });
 
+    describe('createIntLE', function() {
+        var val = 256,
+            len = 2,
+            res1 = buffer_utils.createIntLE(val, len);
+
+        it('should return Buffer instance.', function() {
+            res1.should.be.an.instanceof(Buffer);
+        });
+
+        it('should return correct value and length.', function() {
+            res1.length.should.be.equal(2);
+            res1[0].should.be.equal(0);
+            res1[1].should.be.equal(1);
+        });
+
+        it('should throw error if overflow buffer size.', function() {
+            (function() {
+                buffer_utils.createIntLE(256, 1);
+            }).should.throw();
+        });
+
+    });
+
     describe('createFromString', function() {
         describe('argument is string', function() {
             var str = 'sashimi',

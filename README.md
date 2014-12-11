@@ -51,9 +51,36 @@ buffer_utils.createIntBE(val, len);
 ```
 
 
+### createIntLE(val, len)
+
+Create buffer from integer value as little endian.
+"len" is buffer size(byte).
+
+```
+var val = 16;
+var len = 3;
+
+buffer_utils.createIntBE(val, len);
+// -> <Buffer 10 00 00>
+```
+
+### createFromString(str)
+
+Create buffer from string.
+A charactor of 'str' transform to char code.
+
+```
+var str = 'abcd';
+
+buffer_utils.createFromString(str);
+// -> <Buffer 61 62 63 64>
+```
+
+
 ### createFromHexString(str)
 
 Create buffer from string as big endian.
+A charactor of 'str' must be in hex range [0..f].
 
 ```
 var str = 'abcdef';
